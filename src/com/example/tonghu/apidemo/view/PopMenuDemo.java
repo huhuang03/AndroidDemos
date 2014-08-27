@@ -31,4 +31,18 @@ public class PopMenuDemo extends Activity {
 		});
 		popupMenu.show();
 	}
+	
+	public void popupup(View view) {
+		PopupMenu popupMenu = new PopupMenu(this, view);
+		popupMenu.inflate(R.menu.popup);
+		popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				Toast.makeText(getBaseContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+				return true;
+			}
+		});
+		popupMenu.show();
+	}
 }
