@@ -51,7 +51,6 @@
                 <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.example.tonghu.apidemo.animation.AnimationClone"
             android:label="Animation/Clone" >
@@ -70,9 +69,18 @@
                 <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
             </intent-filter>
         </activity>
-         <activity
+        <activity
             android:name="com.example.tonghu.apidemo.animation.LayoutAnimationByDefault"
             android:label="Animation/Defalut Layout Animation" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.tonghu.apidemo.animation.AnimationEvent"
+            android:label="Animation/Event" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
