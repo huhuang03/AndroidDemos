@@ -42,6 +42,15 @@
                 <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
             </intent-filter>
         </activity>
+         <activity
+            android:name="com.example.tonghu.apidemo.view.ClipChild"
+            android:label="Views/Clip Child" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.example.tonghu.apidemo.animation.BouncingBall"
             android:label="Animation/BouncingBall" >
@@ -81,6 +90,24 @@
         <activity
             android:name="com.example.tonghu.apidemo.animation.AnimationEvent"
             android:label="Animation/Event" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.tonghu.apidemo.animation.LayoutAnimationHideAndShow"
+            android:label="Animation/Hide And Show" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name="com.example.tonghu.apidemo.animation.LayoutAnimation"
+            android:label="Animation/LayoutAnimation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
