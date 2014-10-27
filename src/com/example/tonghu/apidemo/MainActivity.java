@@ -1,5 +1,6 @@
 package com.example.tonghu.apidemo;
 
+import java.io.File;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -29,7 +30,8 @@ public class MainActivity extends ListActivity {
 		if (pathPrefix == null) {
 			pathPrefix = "";
 		}
-		
+		File filesDir = getFilesDir();//return /data/data/${package_name}/files
+		System.out.println(filesDir.getAbsolutePath().toString());
 		getListView().setAdapter(new SimpleAdapter(this, genDatas(pathPrefix), android.R.layout.simple_list_item_1,
 				new String[]{"title"}, new int[]{android.R.id.text1}));
 		

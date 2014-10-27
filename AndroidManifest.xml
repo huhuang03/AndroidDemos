@@ -42,7 +42,7 @@
                 <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
             </intent-filter>
         </activity>
-         <activity
+        <activity
             android:name="com.example.tonghu.apidemo.view.ClipChild"
             android:label="Views/Clip Child" >
             <intent-filter>
@@ -105,9 +105,37 @@
                 <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
             </intent-filter>
         </activity>
-         <activity
+        <activity
             android:name="com.example.tonghu.apidemo.animation.LayoutAnimation"
             android:label="Animation/LayoutAnimation" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.tonghu.apidemo.animation.AnimationFlip"
+            android:label="Animation/Flip" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.tonghu.apidemo.app.ActionBarTabs"
+            android:label="App/Action Bar/Action Bar Tabs" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.tonghu.apidemo.app.CustomTitle"
+            android:label="@string/activity_custom_title"
+            android:theme="@android:style/Theme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
