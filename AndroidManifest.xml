@@ -162,6 +162,24 @@
                 <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.tonghu.apidemo.graphic.AlphaBitmap"
+            android:label="Graphic/AlphaBitmap" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.tonghu.apidemo.graphic.Xfermoders"
+            android:label="Graphic/Xfermoders" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
