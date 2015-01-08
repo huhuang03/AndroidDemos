@@ -23,3 +23,7 @@ local.properties
 proguard/
 
 .settings/org.eclipse.core.resources.prefs
+
+.DS_Store
+
+*.swp

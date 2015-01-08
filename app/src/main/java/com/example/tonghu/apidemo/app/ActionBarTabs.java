@@ -27,7 +27,7 @@ public class ActionBarTabs extends Activity{
 		ActionBar bar = getActionBar();
 		String text = "Tab: " + bar.getTabCount();
 		bar.addTab(bar.newTab().setText(text)
-				.setTabListener(new MyTabListener(new TabContentFragment(text))));
+				.setTabListener(new MyTabListener(new TabContentFragment())));
 	}
 	
 	public static class TabContentFragment extends Fragment {
@@ -37,10 +37,10 @@ public class ActionBarTabs extends Activity{
 			super();
 		}
 		
-		public TabContentFragment(String text) {
-			this();
-			this.text = text;
-		}
+//		public TabContentFragment(String text) {
+//			super();
+//			this.text = text;
+//		}
 		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
