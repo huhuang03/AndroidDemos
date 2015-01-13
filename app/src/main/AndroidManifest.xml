@@ -62,6 +62,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.tonghu.apidemo.view.DrawerLayoutDemo"
+            android:label="Views/Drawer Layout" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.example.tonghu.apidemo.animation.BouncingBall"
             android:label="Animation/BouncingBall" >
             <intent-filter>
