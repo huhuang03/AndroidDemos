@@ -1,1 +1,1 @@
-include ':app', ':material', ':fragment'
+include ':app', ':material', ':fragment', ':guaguaka'
