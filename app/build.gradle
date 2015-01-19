@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 14
-    buildToolsVersion "19.1.0"
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
         applicationId "com.example.tonghu.apidemo"
@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
+    compile "com.android.support:support-v4:21.0.2"
 }
