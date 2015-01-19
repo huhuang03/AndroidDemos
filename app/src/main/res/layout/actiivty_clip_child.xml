@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="子控件超过父控件,目前显示不行"/>
+
+	<LinearLayout
+	    android:id="@+id/ll_clip"
+	    android:layout_width="100dp"
+	    android:layout_height="100dp"
+	    android:clipChildren="false" >
+
+	    <TextView android:layout_width="match_parent"
+	        android:text="fdsjfiosanfdpsajfiodsajifojsaiofsdaocxjiofjisoafjidosajfidsajifopewofdjsioaj"
+	        android:layout_height="match_parent"
+	        android:background="#FF330000"
+	        android:id="@+id/tv_clip"/>
+	</LinearLayout>
+</LinearLayout>
