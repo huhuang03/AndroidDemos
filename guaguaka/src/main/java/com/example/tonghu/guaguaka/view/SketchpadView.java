@@ -76,7 +76,7 @@ public class SketchpadView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         Log.i(TAG, "onDraw");
-        canvas.drawBitmap(backBitmap, 0, 0, null);
+//        canvas.drawBitmap(backBitmap, 0, 0, null);
         canvas.drawBitmap(bitmap, 0, 0, null);
     }
 

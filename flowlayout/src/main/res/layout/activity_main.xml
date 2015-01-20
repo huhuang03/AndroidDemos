@@ -8,20 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <!--<TextView android:text="@string/hello_world" android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content" />-->
-    <FrameLayout
+    <com.example.tonghu.flowlayout.view.FlowLayout
+        android:id="@+id/fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:text="谢谢惠顾"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-        <com.example.tonghu.guaguaka.view.SketchpadView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+    </com.example.tonghu.flowlayout.view.FlowLayout>
 
 </RelativeLayout>
