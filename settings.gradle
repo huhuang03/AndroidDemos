@@ -1,1 +1,0 @@
-include ':app', ':material', ':fragment', ':guaguaka', ':flowlayout', ':weixin6.0'
