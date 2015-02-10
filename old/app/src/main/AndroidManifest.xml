@@ -189,6 +189,7 @@
                 <category android:name="com.example.tonghu.apiidemo.category.APIDEMO" />
             </intent-filter>
         </activity>
+        <service android:name=".app.RemoteService" android:process=":remote"/>
     </application>
 
 </manifest>
