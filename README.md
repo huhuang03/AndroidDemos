@@ -20,3 +20,6 @@
 7、AndoridAnnotationDemo
 
 8、ViewPagerAnimationDemo
+
+9、得到屏幕分辨率的工具
+
