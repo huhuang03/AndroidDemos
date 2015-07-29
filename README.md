@@ -27,3 +27,8 @@
 
 ![](https://raw.github.com/huhuang03/AndroidDemos/master/images/unlock_screen.gif)
 
+11、自定义样式，MultiChoiceListView
+
+    实现能利用系统的getChoicedItem功能，不用自己记录。能自定义item样式（选择与非选择。
+
+    最终结论：系统getChoiceItem可以复用，但是checkedtextview不能改变checkbox位置。如果要自定义item样式，可以监听OnItemClicked()。在这里面处理
