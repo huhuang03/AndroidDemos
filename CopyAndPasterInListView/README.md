@@ -1,0 +1,2 @@
+Selection控制选中，提供setSeleciton(),getSelection()等方法，预Selection交流的是mtext
+TextView 在onFocusChange和onWindowFocusChange中调用Editor的对应方法，进行选择框的关闭。
