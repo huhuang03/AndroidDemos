@@ -21,4 +21,9 @@ public interface LocHandleBehavior {
      */
     void onGoogleOrAndroidLocTimeEnd();
 
+    /**
+     * 请求定位
+     */
+    void onRequestOnce();
+
 }

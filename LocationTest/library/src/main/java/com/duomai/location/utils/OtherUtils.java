@@ -25,7 +25,7 @@ public class OtherUtils {
         Log.i("tonghu","OtherUtils, getLocStringFromLatLon(L20): " + locResult + ", " + url);
         try {
             String stringFromUrl = IoUtils.getStringFromUrl(url);
-            Log.i("tonghu", "OtherUtils, getLocStringFromLatLon(L20): " + stringFromUrl);
+            Log.i("tonghu","OtherUtils, getLocStringFromLatLon(L28) success: ");
             JSONObject jsonObject = new JSONObject(stringFromUrl);
             JSONArray resultsJA = jsonObject.getJSONArray("results");
             for (int i = 0; i < resultsJA.length(); i++) {

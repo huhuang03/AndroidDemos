@@ -59,4 +59,9 @@ public class OnlyGoogleBehavior implements LocHandleBehavior{
         //do nothing
     }
 
+    @Override
+    public void onRequestOnce() {
+        isSuccess = false;
+    }
+
 }

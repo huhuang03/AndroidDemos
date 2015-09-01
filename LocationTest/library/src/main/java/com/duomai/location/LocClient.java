@@ -7,7 +7,7 @@ import android.os.Looper;
 
 import com.duomai.location.internal.AndroidLocFirstBehavior;
 import com.duomai.location.internal.LocHandleBehavior;
-import com.duomai.location.whell.BaseLocateManager;
+import com.duomai.location.internal.wheel.BaseLocateManager;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
@@ -16,10 +16,10 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import static com.duomai.location.whell.LocationManagerSimpleFactory.TYPE_AN;
-import static com.duomai.location.whell.LocationManagerSimpleFactory.TYPE_G;
-import static com.duomai.location.whell.LocationManagerSimpleFactory.TYPE_IP;
-import static com.duomai.location.whell.LocationManagerSimpleFactory.getBaseLocationManagerByType;
+import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.TYPE_AN;
+import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.TYPE_G;
+import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.TYPE_IP;
+import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.getBaseLocationManagerByType;
 
 
 /**
@@ -65,8 +65,6 @@ public class LocClient implements BaseLocateManager.OnGetLocationListener {
     private LocHandleBehavior locHandleBehavior;
     private LocOptions locOptions;
     private ThreadPoolExecutor threadPoolExecutor;
-
-    public static final int M_TIME_OUT = 1;
 
     private Handler mainHandler = new Handler(Looper.getMainLooper());
 
@@ -127,25 +125,29 @@ public class LocClient implements BaseLocateManager.OnGetLocationListener {
             }
         });
 
-        mainHandler.removeMessages(M_TIME_OUT);
-
-        mainHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                LocResult locResult = new LocResult();
-                locResult.setErrCode(ErrCode.ERR_TIME_OUT);
-                locHandleBehavior.onGetLocation(locResult);
-            }
-        }, locOptions.getTimeOut());
-
-        mainHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                locHandleBehavior.onGoogleOrAndroidLocTimeEnd();
-            }
-        }, (long) (locOptions.getTimeOut() * (2 / 3.0)));
+        mainHandler.removeCallbacks(timeOutRunnable);
+        mainHandler.removeCallbacks(googleAndAndroidTimeOut);
+        mainHandler.postDelayed(timeOutRunnable, locOptions.getTimeOut());
+        mainHandler.postDelayed(googleAndAndroidTimeOut, (long) (locOptions.getTimeOut() * (2 / 3.0)));
+        locHandleBehavior.onRequestOnce();
         return false;
     }
+
+    private Runnable timeOutRunnable = new Runnable() {
+        @Override
+        public void run() {
+            LocResult locResult = new LocResult();
+            locResult.setErrCode(ErrCode.ERR_TIME_OUT);
+            locHandleBehavior.onGetLocation(locResult);
+        }
+    };
+
+    private Runnable googleAndAndroidTimeOut = new Runnable() {
+        @Override
+        public void run() {
+            locHandleBehavior.onGoogleOrAndroidLocTimeEnd();
+        }
+    };
 
     public void release() {
         stop();
@@ -160,8 +162,8 @@ public class LocClient implements BaseLocateManager.OnGetLocationListener {
      * @hide
      */
     private void stop() {
-        mainHandler.removeCallbacks(null);
-        mainHandler.removeMessages(M_TIME_OUT);
+        mainHandler.removeCallbacks(timeOutRunnable);
+        mainHandler.removeCallbacks(googleAndAndroidTimeOut);
         googleLocationManager.stop();
         ipLocationManager.stop();
         androidLocationManager.stop();

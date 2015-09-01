@@ -55,12 +55,12 @@ public class AndroidLocFirstBehavior implements LocHandleBehavior{
     }
 
     private void handleResult(final ErrCode errCode, final List<LocResult> locResults) {
+        isHandled = true;
         locClient.getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 if (locClient.getLocOptions().getLocListener() != null) {
                     locClient.getLocOptions().getLocListener().onLocResult(errCode, locResults);
-                    isHandled = true;
                 }
             }
         });
@@ -73,6 +73,11 @@ public class AndroidLocFirstBehavior implements LocHandleBehavior{
             locResults.add(netLocResult);
             handleResult(ErrCode.OK, locResults);
         }
+    }
+
+    @Override
+    public void onRequestOnce() {
+        isHandled = false;
     }
 
 

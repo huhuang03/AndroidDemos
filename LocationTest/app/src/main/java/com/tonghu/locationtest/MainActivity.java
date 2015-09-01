@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements LocListener {
 
     public void start(View view) {
         tv.setText("定位中");
+        Log.i("tonghu","MainActivity, start(L37): ");
         LocClient.getInstance(this).requestOnce();
     }
 
@@ -75,13 +76,16 @@ public class MainActivity extends AppCompatActivity implements LocListener {
     @Override
     public void onLocResult(ErrCode errCode, List<LocResult> results) {
         Log.i("tonghu", "MainActivity, onLocResult(L55): ");
-        if (results.size() > 0) {
-            tv.setText(results.get(0).toString());
-        } else {
-            tv.setText("定位失败!");
-        }
-        if (errCode == ErrCode.SERVICE_VERSION_UPDATE_REQUIRED) {
+        if (errCode == ErrCode.OK) {
+            if (results != null && results.size() > 0) {
+                tv.setText(results.get(0).toString());
+            } else {
+                tv.setText("定位失败111!");
+            }
+        } else if (errCode == ErrCode.SERVICE_VERSION_UPDATE_REQUIRED) {
             LocClient.showUpdateGoogleServiceDialog(this);
+        } else {
+            tv.setText("定位失败!" + errCode);
         }
     }
 }
