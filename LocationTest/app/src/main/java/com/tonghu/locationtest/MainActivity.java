@@ -1,7 +1,7 @@
 package com.tonghu.locationtest;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity implements LocListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tv = (TextView) findViewById(R.id.tv);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                start(v);
+            }
+        });
         LocOptions locOptions = new LocOptions();
         locOptions.setLocListener(this);
         locOptions.setTimeOut(15000);
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements LocListener {
 
     public void start(View view) {
         tv.setText("定位中");
-        Log.i("tonghu","MainActivity, start(L37): ");
+        Log.i("tonghu", "MainActivity, start(L37): ");
         LocClient.getInstance(this).requestOnce();
     }
 
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements LocListener {
 
     @Override
     public void onLocResult(ErrCode errCode, List<LocResult> results) {
-        Log.i("tonghu", "MainActivity, onLocResult(L55): ");
+        Log.i("tonghu", "MainActivity, onLocResult(L55): " + Log.getStackTraceString(new Exception()));
         if (errCode == ErrCode.OK) {
             if (results != null && results.size() > 0) {
                 tv.setText(results.get(0).toString());

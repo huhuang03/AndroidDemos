@@ -32,7 +32,7 @@ public class OnlyGoogleBehavior implements LocHandleBehavior{
             return;
         }
 
-        if (locResult.getFrom() == LocResult.From.G) {
+        if (locResult.getFrom() == LocResult.From.GOOGLE) {
             Log.i("tonghu","OnlyGoogleBehavior, onGetLocation(L28): ");
             if (locResult.getErrCode() == ErrCode.OK) {
                 isSuccess = true;

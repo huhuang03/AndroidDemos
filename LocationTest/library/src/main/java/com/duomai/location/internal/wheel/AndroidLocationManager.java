@@ -66,7 +66,7 @@ public class AndroidLocationManager extends BaseLocateManager implements android
             e.printStackTrace();
             Log.i("tonghu", "AndroidLocationManager, startInternal(L38): an22222222222");
             LocResult locResult = new LocResult();
-            locResult.setFrom(LocResult.From.AN);
+            locResult.setFrom(LocResult.From.ANDROID);
             handleGetLocation(locResult);
         }
     }
@@ -78,7 +78,7 @@ public class AndroidLocationManager extends BaseLocateManager implements android
             @Override
             public void run() {
                 LocResult locationData = new LocResult();
-                locationData.setFrom(LocResult.From.AN);
+                locationData.setFrom(LocResult.From.ANDROID);
 
                 if (location != null) {
                     locationData.setErrCode(ErrCode.OK);

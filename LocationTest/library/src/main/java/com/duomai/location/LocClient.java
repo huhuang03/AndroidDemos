@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.duomai.location.internal.AndroidLocFirstBehavior;
 import com.duomai.location.internal.LocHandleBehavior;
@@ -16,9 +17,9 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.TYPE_IP;
 import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.TYPE_AN;
 import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.TYPE_G;
-import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.TYPE_IP;
 import static com.duomai.location.internal.wheel.LocationManagerSimpleFactory.getBaseLocationManagerByType;
 
 
@@ -84,6 +85,7 @@ public class LocClient implements BaseLocateManager.OnGetLocationListener {
         if (instance == null) {
             synchronized(LocClient.class) {
                 if (instance == null) {
+                    Log.i("tonghu", "LocClient, getInstance(L88): ");
                     instance = new LocClient(context.getApplicationContext());
                 }
             }
@@ -115,13 +117,13 @@ public class LocClient implements BaseLocateManager.OnGetLocationListener {
         threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                ipLocationManager.start();
+                androidLocationManager.start();
             }
         });
         threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                androidLocationManager.start();
+                ipLocationManager.start();
             }
         });
 
@@ -164,10 +166,16 @@ public class LocClient implements BaseLocateManager.OnGetLocationListener {
     private void stop() {
         mainHandler.removeCallbacks(timeOutRunnable);
         mainHandler.removeCallbacks(googleAndAndroidTimeOut);
-        googleLocationManager.stop();
-        ipLocationManager.stop();
-        androidLocationManager.stop();
-        if (!threadPoolExecutor.isShutdown()) {
+        if (googleLocationManager != null) {
+            googleLocationManager.stop();
+        }
+        if (androidLocationManager != null) {
+            androidLocationManager.stop();
+        }
+        if (ipLocationManager != null) {
+            ipLocationManager.stop();
+        }
+        if (threadPoolExecutor != null && !threadPoolExecutor.isShutdown()) {
             threadPoolExecutor.shutdownNow();
         }
     }
@@ -175,12 +183,12 @@ public class LocClient implements BaseLocateManager.OnGetLocationListener {
 
     private void init() {
         googleLocationManager = getBaseLocationManagerByType(context, TYPE_G);
-        ipLocationManager = getBaseLocationManagerByType(context, TYPE_IP);
         androidLocationManager = getBaseLocationManagerByType(context, TYPE_AN);
+        ipLocationManager = getBaseLocationManagerByType(context, TYPE_IP);
 
         googleLocationManager.setOnGetLocationListener(this);
-        ipLocationManager.setOnGetLocationListener(this);
         androidLocationManager.setOnGetLocationListener(this);
+        ipLocationManager.setOnGetLocationListener(this);
         threadPoolExecutor = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>(),
                 new ThreadFactory() {
                     @Override

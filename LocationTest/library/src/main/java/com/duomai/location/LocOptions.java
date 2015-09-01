@@ -6,12 +6,14 @@ package com.duomai.location;
  * @since 1.0.0
  */
 public class LocOptions {
-    private LocListener locListener;
+
     private static final int TIME_OUT = 5000;   //ms
+
+    private LocListener locListener;
+
     private int timeOut = TIME_OUT;
 
     public LocOptions() {
-        timeOut = TIME_OUT;
     }
 
     public void setLocListener(LocListener locListener) {
@@ -29,4 +31,5 @@ public class LocOptions {
     public int getTimeOut() {
         return timeOut;
     }
+
 }

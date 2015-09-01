@@ -9,6 +9,7 @@ import com.duomai.location.utils.IoUtils;
 import org.json.JSONObject;
 
 /**
+ * //TODO WIFI情况
  * Created by tonghu on 7/16/15.
  */
 public class IPLocationManager extends BaseLocateManager{

@@ -88,7 +88,7 @@ public class GoogleLocationManager extends BaseLocateManager implements GoogleAp
                 mGoogleApiClient);
         if (mLastLocation != null) {
             LocResult locationData = new LocResult();
-            locationData.setFrom(LocResult.From.G);
+            locationData.setFrom(LocResult.From.GOOGLE);
             locationData.setErrCode(ErrCode.OK);
             locationData.setLat(mLastLocation.getLatitude());
             locationData.setLon(mLastLocation.getLongitude());
@@ -123,7 +123,7 @@ public class GoogleLocationManager extends BaseLocateManager implements GoogleAp
 
     private void handleError(ErrCode errCode) {
         LocResult locationData = new LocResult();
-        locationData.setFrom(LocResult.From.G);
+        locationData.setFrom(LocResult.From.GOOGLE);
         locationData.setErrCode(errCode);
         handleGetLocation(locationData);
     }

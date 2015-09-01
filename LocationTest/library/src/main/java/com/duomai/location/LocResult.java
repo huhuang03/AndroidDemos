@@ -76,7 +76,7 @@ public class LocResult extends FormatStringBean {
     }
 
     public enum From {
-        G, AN, IP;
+        GOOGLE, ANDROID, IP
     }
 
 }

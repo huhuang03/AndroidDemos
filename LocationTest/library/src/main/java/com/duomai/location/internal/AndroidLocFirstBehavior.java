@@ -35,14 +35,14 @@ public class AndroidLocFirstBehavior implements LocHandleBehavior{
         }
 
         LocResult.From from = locResult.getFrom();
-        if (from == LocResult.From.G) {
+        if (from == LocResult.From.GOOGLE) {
             googleLocResult = locResult;
             if (!isHandled) {
                 List<LocResult> locResults = new ArrayList<>();
                 locResults.add(googleLocResult);
                 handleResult(ErrCode.OK, locResults);
             }
-        } else if (from == LocResult.From.AN) {
+        } else if (from == LocResult.From.ANDROID) {
             androidLocResult = locResult;
             if (!isHandled) {
                 List<LocResult> locResults = new ArrayList<>();
