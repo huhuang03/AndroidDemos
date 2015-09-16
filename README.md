@@ -47,10 +47,15 @@
 
 15. LocationSearch 定位测试
     已经完成
+
     过大，转移到单独项目管理
 
 16. DragAndDrop
+    just show the drag shadow
     
 
 17. WebViewTest
     webView与java的交互。依赖本机的website: webWebViewTest
+
+18. ViewUtilsTest
+    尝试写xUtils中的ViewUtils,训练annotation的用法
