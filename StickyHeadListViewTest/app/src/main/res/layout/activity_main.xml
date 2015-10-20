@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+    <TextView
+        android:id="@+id/stickView"
+        android:visibility="gone"
+        android:gravity="center"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_width="match_parent"
+        android:text="这是悬浮部分"
+        android:layout_height="20dp"/>
+</FrameLayout>

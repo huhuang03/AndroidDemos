@@ -59,3 +59,12 @@
 
 18. ViewUtilsTest
     尝试写xUtils中的ViewUtils,训练annotation的用法
+
+19. FastervalDemo
+来自幕课网，我照着demo敲一边，以为只想要测试TabLayout。所以就这样了，不敲完
+
+20. Data Binding
+注意，还是在测试阶段
+
+21. Android Test
+/ui/uiautomator/BasicSample: uiautomator基本例子
