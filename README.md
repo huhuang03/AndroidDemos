@@ -68,3 +68,5 @@
 
 21. Android Test
 /ui/uiautomator/BasicSample: uiautomator基本例子
+
+22. OnTouchTest
